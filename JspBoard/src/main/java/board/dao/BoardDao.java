@@ -83,5 +83,17 @@ public class BoardDao {
 		return list;
 	}
 	
+	public int write(String writer, String title, String content) throws SQLException {
+		
+		sql = "INSERT INTO simple_bbs (writer, title, content) values (?,?,?)";
+		
+		pstmt = conn.prepareStatement(sql);
+		pstmt.setString(1, writer);
+		pstmt.setString(2, title);
+		pstmt.setString(3, content);
+		
+		return pstmt.executeUpdate();
+		
+	}
 	
 }

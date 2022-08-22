@@ -38,9 +38,11 @@
 				}
 			%>
 
-
 		</tbody>
 
 	</table>
+	
+	<a href="writeForm.jsp">등록하기</a>
+	
 </body>
 </html>
