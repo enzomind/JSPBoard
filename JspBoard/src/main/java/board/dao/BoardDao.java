@@ -37,7 +37,7 @@ public class BoardDao {
 		}
 
 	}
-	
+
 	public ArrayList<Board> getList() throws SQLException {
 		ArrayList<Board> list = new ArrayList<Board>();
 
@@ -52,48 +52,108 @@ public class BoardDao {
 			bd.setWriter(rs.getString(2));
 			bd.setTitle(rs.getString(3));
 			bd.setContent(rs.getString(4));
-			
+
 			list.add(bd);
 		}
 
 		return list;
 	}
-	
+
 	public ArrayList<Board> getDetail(int id) throws SQLException {
 		ArrayList<Board> list = new ArrayList<Board>();
 
 		sql = "SELECT * FROM simple_bbs WHERE id = ?";
-		
+
 		pstmt = conn.prepareStatement(sql);
 		pstmt.setInt(1, id);
 		rs = pstmt.executeQuery();
-		
+
 		while (rs.next()) {
 			Board bd = new Board();
 			bd.setId(rs.getInt(1));
 			bd.setWriter(rs.getString(2));
 			bd.setTitle(rs.getString(3));
 			bd.setContent(rs.getString(4));
-			
+
 			list.add(bd);
 		}
-		
-		
-		
+
 		return list;
 	}
-	
+
 	public int write(String writer, String title, String content) throws SQLException {
-		
+
 		sql = "INSERT INTO simple_bbs (writer, title, content) values (?,?,?)";
-		
+
 		pstmt = conn.prepareStatement(sql);
 		pstmt.setString(1, writer);
 		pstmt.setString(2, title);
 		pstmt.setString(3, content);
-		
+
 		return pstmt.executeUpdate();
-		
+
 	}
 	
+	
+	public int modify(int id, String writer, String title, String content) throws SQLException {
+		sql = "UPDATE simple_bbs SET writer='?', title='?' content='?' WHERE id='?'";
+		
+		try {
+		pstmt = conn.prepareStatement(sql);
+		
+		pstmt.setString(1, writer);
+		pstmt.setString(2, title);
+		pstmt.setString(3, content);
+		pstmt.setInt(4, id);
+	
+		 
+		return pstmt.executeUpdate();
+		}finally {
+			pstmt.close();
+		}
+	}
+	
+	
+	
+//
+//	private Board makeModelFromResultSet(ResultSet rs) throws SQLException {
+//		Board board = new Board();
+//
+//		board.setId(rs.getInt("id"));
+//		board.setWriter(rs.getString("writer"));
+//		board.setTitle(rs.getString("title"));
+//		board.setContent(rs.getString("content"));
+//
+//		return board;
+//
+//	}
+//
+//	public Board selectWhereNumber(int id) throws SQLException {
+//		
+//		sql = "SELECT * FROM simple_bbs WHERE id=?";
+//
+//		pstmt = conn.prepareStatement(sql);
+//		pstmt.setInt(1, id);
+//		rs = pstmt.executeQuery();
+//
+//		Board board = new Board();
+//		board.setId(rs.getInt(1));
+//		board.setWriter(rs.getString(2));
+//		board.setTitle(rs.getString(3));
+//		board.setContent(rs.getString(4));
+//			
+//		return board;
+//		
+//	}
+	
+
+//		sql = "SELECT * FROM simple_bbs WHERE id=?";
+//		pstmt = conn.prepareStatement(sql);
+//		pstmt.setInt(1, id);
+//		
+//		rs = pstmt.executeQuery();
+//		
+//		return makeModelFromResultSet(rs);
+
+
 }

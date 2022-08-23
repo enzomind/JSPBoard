@@ -10,6 +10,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>게시판 상세보기</title>
 </head>
+
+
 <body>
 	<table border="1" cellpadding="0" cellspacing="0">
 
@@ -32,7 +34,7 @@
 			<tr>
 				<td><%=list.get(i).getId()%></td>
 				<td><%=list.get(i).getWriter()%></td>
-				<td><a href="boardDetail.jsp?bno=<%=list.get(i).getId()%>"><%=list.get(i).getTitle()%></td>
+				<td><%=list.get(i).getTitle()%></td>
 				<td><%=list.get(i).getContent()%></td>
 			</tr>
 			<%
@@ -43,5 +45,6 @@
 		</tbody>
 
 	</table>
+	<a href="modifyForm.jsp?id=<%=idnumber%>">수정하기</a>
 </body>
 </html>

@@ -20,7 +20,8 @@
 	<%
 		BoardDao boarddao = new BoardDao();	
 		
-		int result = boarddao.write(board.getWriter(), board.getTitle(), board.getContent());
+		int result = boarddao.modify(Integer.parseInt(request.getParameter("id")), board.getWriter(), board.getTitle(), board.getContent());
+		
 	%>
 </body>
 </html>

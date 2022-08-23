@@ -4,7 +4,7 @@
 
 <%@ page import = "board.dao.BoardDao" %>
 <%@ page import = "board.model.Board" %>	
-
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
