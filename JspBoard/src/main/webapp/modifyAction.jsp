@@ -14,14 +14,12 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>등록처리</title>
+<title>수정 처리</title>
 </head>
 <body>
 	<%
 		BoardDao boarddao = new BoardDao();	
-		
-		int result = boarddao.modify(Integer.parseInt(request.getParameter("id")), board.getWriter(), board.getTitle(), board.getContent());
-		
+		int result = boarddao.modify(Integer.parseInt(request.getParameter("id")), board.getWriter(), board.getTitle(), board.getContent());	
 	%>
 </body>
 </html>

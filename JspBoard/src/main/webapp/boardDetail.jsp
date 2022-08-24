@@ -13,7 +13,7 @@
 
 
 <body>
-	<table border="1" cellpadding="0" cellspacing="0">
+	<table border="1" cellpadding="2" cellspacing="0">
 
 		<tr>
 			<th>아이디</th>
@@ -45,6 +45,7 @@
 		</tbody>
 
 	</table>
-	<a href="modifyForm.jsp?id=<%=idnumber%>">수정하기</a>
+	<button onclick="location.href=('modifyForm.jsp?id=<%=idnumber%>');">수정</button>
+	<button onclick="location.href=('deleteAction.jsp?id=<%=idnumber%>');">삭제</button>
 </body>
 </html>

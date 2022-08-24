@@ -28,7 +28,7 @@
 				alert(error);
 			},
 			success : function(data) {
-				alert("수 성공");
+				alert("수정이 완료되었습니다.");
 				/* let url = 'boardList.jsp'; */ 
 				location.replace('boardList.jsp');
 			}
@@ -55,21 +55,20 @@
 			%>
 
 				
-			<input type="hidden" name="id"
-					value="<%=idnumber%>">
+			<input type="hidden" name="id" value="<%=idnumber%>">
 				
 			<tr>
-				<td>작성자</td>
+				<th>작성자</th>
 				<td><input type="text" name="writer"
 					value="<%=list.get(i).getWriter()%>"></td>
 			</tr>
 			<tr>
-				<td>제목</td>
+				<th>제목</th>
 				<td><input type="text" name="title"
 					value="<%=list.get(i).getTitle()%>"></td>
 			</tr>
 			<tr>
-				<td>내용</td>
+				<th>내용</th>
 				<td><input type="text" name="content"
 					value="<%=list.get(i).getContent()%>"></td>
 			</tr>

@@ -14,7 +14,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>등록처리</title>
+<title>등록 처리</title>
 </head>
 <body>
 	<%
